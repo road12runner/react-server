@@ -1,3 +1,27 @@
-//import React from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'babel-polyfill';
+import {BrowserRouter} from 'react-router-dom'
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux'
+import Routes from './routes';
 
-console.log('hi there');
+import reducers from './reducers';
+
+const store = createStore(reducers, {}, applyMiddleware(thunk));
+
+
+const routes = (
+	<BrowserRouter>
+		<Routes/>
+	</BrowserRouter>
+);
+
+const  app = <Provider store={store}>
+	{routes}
+</Provider>;
+
+
+ReactDOM.hydrate(app, document.querySelector('#root'));
+
