@@ -1,8 +1,8 @@
 import React from 'react';
 //import {Route}  from 'react-router-dom';
 
-import Home from './components/home';
-import Users from './components/users';
+import HomePage from './pages/home-page';
+import UsersPage from './pages/users-page';
 
 // export default () => {
 // 	return (
@@ -16,12 +16,12 @@ import Users from './components/users';
 
 export default [
 	{
+		...HomePage,
 		path: '/',
-		component: Home,
 		exact: true
 	},
 	{
 		path: '/users',
-		component: Users
+		...UsersPage
 	}
 ];
