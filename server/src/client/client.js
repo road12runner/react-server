@@ -10,7 +10,13 @@ import Routes from './routes';
 
 import reducers from './reducers';
 
-const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
+import axios from 'axios';
+
+const axiosInstance = axios.create({
+	baseURL: '/api',
+});
+
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk.withExtraArgument(axiosInstance)));
 
 
 const routes = (
