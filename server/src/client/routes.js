@@ -4,6 +4,8 @@ import React from 'react';
 
 import HomePage from './pages/home-page';
 import UsersPage from './pages/users-page';
+import AdminsPage from './pages/admins-page';
+import NotFoundPage from './pages/not-found-page';
 import App from './app';
 
 // export default () => {
@@ -28,6 +30,13 @@ export default [
 			{
 				path: '/users',
 				...UsersPage
+			},
+			{
+				...AdminsPage,
+				path: '/admins'
+			},
+			{
+				...NotFoundPage,
 			}
 		]
 	}
